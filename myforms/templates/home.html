@@ -1,0 +1,20 @@
+{% extends 'template.html' %}
+
+{% block content %}
+
+    {% for gform in gforms %}
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">{{gform.owner}}</h5>
+            <p class="card-text">{{gform.name}}</p>
+            <a href="" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock content %}
+
+{% block title %}
+    Home
+{% endblock title %}
