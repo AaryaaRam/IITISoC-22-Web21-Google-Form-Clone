@@ -10,7 +10,7 @@ def signup(request):
         if form.is_valid():
             username=form.cleaned_data.get('username')
             messages.success(request,f'Account Created {username}')
-            return redirect('signin')
+            return redirect('form-home')
     else:
         form=UserCreationForm()
     return render(request,'signup.html',{'form':form})
