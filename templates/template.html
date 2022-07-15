@@ -34,14 +34,16 @@
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="">Log Out</a>
+              <form action="{% url 'signout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" style="background-color: #e3f2fd; border: none;">SignOut</button>  
+              </form>
             </li>
           </ul>
         </div>
       </nav>
 
       
-    
     <div class="container">
         {% block content %}{% endblock content %}
     </div>

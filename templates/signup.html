@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
+    {% load crispy_forms_tags %}
     <div class="content-section">
         <form method="post">
             {% csrf_token %}
@@ -15,14 +16,14 @@
                 <legend class="border-bottom">
                     SignUp
                 </legend>
-                {{ form }}
+                {{ form|crispy }}
             </fieldset>
             <div class="form-group">
                 <button type="submit" class="btn btn-outline-info">SignUp</button>
             </div>
             <div class="border-top pt-2">
                 <small class="text-muted">
-                    Have an Account?<a href="">SignIn</a>
+                    Have an Account?<a href="{url 'signin'}">SignIn</a>
                 </small>
             </div>
         </form>
