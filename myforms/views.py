@@ -7,12 +7,14 @@ from myforms.models import CreateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 
+from django.contrib.auth.models import User
+
 # Create your views here.
 
 @login_required(login_url='accounts/signin')
 def home(request):
     context={
-        'gforms':CreateForm.objects.all()
+        'gforms':CreateForm.objects.filter(owner_id=User.objects.get(id=request.user.id))
     }
     return render(request,'home.html',context)
 
