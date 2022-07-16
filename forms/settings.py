@@ -128,3 +128,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
+
+
+#lodinredirectmixin redirects to 'login' so this path is edited to 'signin'
+LOGIN_URL='signin'

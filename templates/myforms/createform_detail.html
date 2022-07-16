@@ -6,6 +6,13 @@
 
 {% block content %}
 
+    {% comment %} {% {{if object.owner}}==user %} {% endcomment %}
+
+        <a class="btn btn-outline-info" href="{% url 'form-update' object.id %}">Update</a>
+        <a class="btn btn-outline-danger" href="{% url 'form-delete' object.id %}">Delete</a>
+
+    {% comment %} {% endif %} {% endcomment %}
+
     {{ object.owner }}
     {{ object.name }}
 

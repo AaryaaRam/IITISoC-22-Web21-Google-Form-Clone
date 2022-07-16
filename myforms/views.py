@@ -1,10 +1,11 @@
-from django.views.generic import ListView,DetailView,CreateView,DeleteView
+from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
 from multiprocessing import context
 from re import template
 from django.http import HttpResponse
 from django.shortcuts import render
 from myforms.models import CreateForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 
 # Create your views here.
 
@@ -25,13 +26,37 @@ class FormList(ListView):
     context_object_name='gform'
     order_by=['date-posted']
 
-class FormOpenView(DetailView):
+class FormOpenView(LoginRequiredMixin,DetailView):
     model=CreateForm
 
-class CreateNewForm(CreateView):
+class CreateNewForm(LoginRequiredMixin,CreateView):
     model=CreateForm
     fields=['name']
     
     def form_valid(self,form):
         form.instance.owner=self.request.user
         return super().form_valid(form)
+ 
+class UpdateForm(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
+    model=CreateForm
+    fields=['name']
+  
+    def form_valid(self,form):
+        form.instance.owner=self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        gform=self.get_object()
+        if self.request.user==gform.owner:
+            return True
+        return False
+
+class DeleteForm(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
+    model=CreateForm
+    success_url='/'
+
+    def test_func(self):
+        gform=self.get_object()
+        if self.request.user==gform.owner:
+            return True
+        return False
