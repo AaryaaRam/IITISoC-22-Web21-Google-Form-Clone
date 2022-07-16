@@ -1,0 +1,25 @@
+{% extends 'template.html' %}
+
+{% block title %}
+    Delete
+{% endblock title %}
+
+{% block content %}
+
+<div class="content-section">
+    <form method="post">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom">
+                Delete From
+            </legend>
+            Confirmation
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-danger">Delete</button>
+            <a href="{% url 'form-view' object.id %}" class="btn btn-outline-primary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

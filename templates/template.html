@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md" id="navbar-fixed" style="background-color: #e3f2fd">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/form/new">New Form</a>
+            </li>
+          </ul>
+        </div>
+        <div class="mx-auto order-0">
+          <a class="navbar-brand ms-auto" href="/">Forms</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target=".dual-collapse2"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <form action="{% url 'signout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" style="background-color: #e3f2fd; border: none;">SignOut</button>  
+              </form>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      
+    <div class="container">
+        {% block content %}{% endblock content %}
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

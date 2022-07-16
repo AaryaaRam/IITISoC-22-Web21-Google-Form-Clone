@@ -1,0 +1,34 @@
+{% extends 'template.html' %}
+
+{% block content %}
+
+    {% if messages %}
+            
+    {% for message in messages %}
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    {% endfor %}
+
+    {% endif %}
+
+    {% for gform in gforms %}
+    {% comment %} {% if gform.owner==user %} {% endcomment %}
+        <div class="card" style="width: 18rem; cursor: pointer;">
+            <div class="card-body">
+            <h5 class="card-title">{{gform.owner}}</h5>
+            <p class="card-text">{{gform.name}}</p>
+            <a class="btn btn-outline-info" href="{% url 'form-view' gform.id %}">View</a>
+            </div>
+        </div>
+
+    {% comment %} {% endif %} {% endcomment %}
+    {% endfor %}
+{% endblock content %}
+
+{% block title %}
+    Home
+{% endblock title %}

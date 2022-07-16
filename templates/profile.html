@@ -1,0 +1,9 @@
+{% extends 'template.html' %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+<h1> {{ user.profile.name }} </h1>
+{{ user.username }}
+
+{% endblock content %}

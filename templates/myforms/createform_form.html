@@ -1,0 +1,23 @@
+{% extends 'template.html' %}
+
+{% block title %}Create Form{% endblock title %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+    <div class="content-section">
+        <form method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom">
+                    New Form
+                </legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-info">Continue</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}
