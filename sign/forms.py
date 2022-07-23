@@ -5,10 +5,11 @@ from django.contrib.auth.forms import UserCreationForm
 
 class RegistrationForm(UserCreationForm):
     email=forms.EmailField()
+    name=forms.CharField(max_length=50)
 
     class Meta:
         model=User
-        fields=['username','email','password1','password2']
+        fields=['username','email','name','password1','password2']
     
     def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)

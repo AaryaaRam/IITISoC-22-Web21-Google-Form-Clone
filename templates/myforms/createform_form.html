@@ -4,8 +4,12 @@
 
 {% block content %}
 
+<style>
+
+</style>
+
 {% load crispy_forms_tags %}
-    <div class="content-section">
+    <div class="content-section" style="margin-top: 3%;">
         <form method="post">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -14,15 +18,13 @@
                 </legend>
                 {{ form|crispy }}
             </fieldset>
-            <div id="qstns">
-
-            </div>
+        <div style="display: flex;">
             
-            <div class="form-group">
-                <button type="submit" class="btn btn-outline-info">Continue</button>
-            </div>
+            <button type="submit" class="btn btn-outline-info" style="margin-top: 2%;">Continue</button>
+            
+        </div>
         </form>
-        <button class="btn btn-outline-success" id="add-q">Add Question</button>
+        <button class="btn btn-outline-success" id="add-q" style="margin-bottom: 2%; margin-top: 2%;">Add Question</button>
         <div id="input-fields">
                 
         </div>
