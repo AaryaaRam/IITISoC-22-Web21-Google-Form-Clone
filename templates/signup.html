@@ -7,11 +7,11 @@
     <title>SignUp</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'sign/style.css' %}">
 </head>
 <body>
     {% load crispy_forms_tags %}
-    <div class="content-section">
+    <div class="sign-fld">
         <form method="post">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -21,7 +21,7 @@
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button type="submit" class="btn btn-outline-info">SignUp</button>
+                <button type="submit" class="btn btn-outline-info" id="sign-btn">SignUp</button>
             </div>
             <div class="border-top pt-2">
                 <small class="text-muted">

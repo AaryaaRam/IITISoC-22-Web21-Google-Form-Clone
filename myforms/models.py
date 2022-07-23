@@ -15,13 +15,11 @@ class CreateForm(models.Model):
         
     def get_absolute_url(self):
         return reverse("form-view", kwargs={"pk": self.pk})
-    
-
 
 
 class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     name=models.CharField(max_length=40,default="")
-
+    
     def __str__(self):
         return f'{self.user.username}'

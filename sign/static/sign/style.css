@@ -1,0 +1,19 @@
+.sign-fld {
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 10%;
+    border: 1px solid;
+    padding: 2%;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 16px;
+}
+
+#sign-btn {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    justify-content: center;
+    margin-left: 40%;
+}
