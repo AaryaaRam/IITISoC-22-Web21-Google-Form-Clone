@@ -1,0 +1,29 @@
+.center {  
+    display: flex;
+    justify-content: center;
+}
+
+.sign-fld {
+    width: 30%;
+    border: 1px solid;
+    padding: 3%;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 16px;
+}
+
+#sign-btn {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    justify-content: center;
+}
+
+.btn-sign {
+    display: flex;
+    justify-content: center;
+}
+
+.margt {
+    margin-top: 2%;
+}
